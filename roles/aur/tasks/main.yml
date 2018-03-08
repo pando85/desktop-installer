@@ -1,0 +1,33 @@
+---
+# tasks file for pacaur
+
+- name: All root
+  block:
+    - name: "Install yaourt"
+      pacman:
+        name: "{{ item }}"
+        state: present
+        update_cache: yes
+      with_items:
+        - yaourt
+        - shadow
+
+    - name: Create user
+      user:
+        name: "{{ aur_user }}"
+        state: present
+        createhome: no
+        #shell: /bin/false
+
+    - name: add to sudoers
+      lineinfile:
+        line: "{{ aur_user }} ALL=(ALL) NOPASSWD: ALL"
+        path: "/etc/sudoers"
+  become: yes
+
+- name: Test install from aur
+  aur:
+    name: openssl
+    tool: yaourt
+  become: yes
+  become_user: "{{ aur_user }}"

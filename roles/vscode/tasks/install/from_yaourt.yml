@@ -1,0 +1,17 @@
+---
+- name: Install dependencies
+  pacman:
+    name: "{{ item }}"
+    state: present
+    update_cache: yes
+  become: yes
+  with_items:
+    - fakeroot
+    - binutils
+
+- name: Install from aur
+  aur:
+    name: visual-studio-code-bin
+    tool: yaourt
+  become: yes
+  become_user: "{{ aur_user }}"
