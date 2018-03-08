@@ -1,16 +1,16 @@
 #!groovy
 
-node('docker') {
+node('dockerpython') {
 
     stage('Checkout'){
         checkout scm
     }
 
-	stage('Install dependencies'){
-	    sh 'pip install -r requirements.txt'
+	stage('Check'){
+	    sh 'make check'
 	}
 
     stage('Test with molecule'){
-	    sh 'cd roles/vscode && molecule test'
+	    sh 'make test'
     }
 }
