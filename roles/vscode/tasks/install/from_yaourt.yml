@@ -12,6 +12,4 @@
 - name: Install from aur
   aur:
     name: visual-studio-code-bin
-    tool: yaourt
-  become: yes
-  become_user: "{{ aur_user }}"
+    user: "{{ aur_user }}"

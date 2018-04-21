@@ -2,32 +2,37 @@
 # tasks file for pacaur
 
 - name: All root
+  become: yes
   block:
-    - name: "Install yaourt"
+    - name: "[aur] check dependencies"
       pacman:
         name: "{{ item }}"
         state: present
         update_cache: yes
       with_items:
-        - yaourt
         - shadow
 
-    - name: Create user
+    - name: "[aur] check aur installer"
+      pacman:
+        name: "{{ aur_installer }}"
+        state: present
+        update_cache: yes
+      when: aur_installer is defined
+
+    - name: "[aur] create user"
       user:
         name: "{{ aur_user }}"
         state: present
-        createhome: no
-        #shell: /bin/false
+        shell: /bin/nologin
+        home: /var/lib/aurman
+        system: yes
 
     - name: add to sudoers
       lineinfile:
         line: "{{ aur_user }} ALL=(ALL) NOPASSWD: ALL"
         path: "/etc/sudoers"
-  become: yes
 
-- name: Test install from aur
+- name: "[aur] test install from aur"
   aur:
     name: openssl
-    tool: yaourt
-  become: yes
-  become_user: "{{ aur_user }}"
+    user: "{{ aur_user }}"
