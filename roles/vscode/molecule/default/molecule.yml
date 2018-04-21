@@ -7,7 +7,7 @@ lint:
   name: yamllint
 platforms:
   - name: instance
-    image: pando85/manjaro:latest
+    image: pritunl/archlinux:latest
 provisioner:
   name: ansible
   lint:
