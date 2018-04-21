@@ -1,4 +1,4 @@
-ansible==2.4.3.0
+ansible==2.5.1
 ansible-lint==3.4.19
 anyconfig==0.9.1
 arrow==0.12.1
@@ -16,7 +16,7 @@ click-completion==0.2.1
 colorama==0.3.7
 configparser==3.5.0
 cookiecutter==1.5.1
-cryptography==2.1.4
+cryptography==2.2.2
 docker-py==1.10.6
 docker-pycreds==0.2.2
 enum34==1.1.6
@@ -26,7 +26,7 @@ funcsigs==1.0.2
 future==0.16.0
 git-url-parse==1.0.2
 idna==2.6
-ipaddress==1.0.19
+ipaddress==1.0.22
 Jinja2==2.10
 jinja2-time==0.2.0
 MarkupSafe==1.0
@@ -34,7 +34,7 @@ marshmallow==2.13.5
 mccabe==0.6.1
 molecule==2.9.0
 monotonic==1.4
-paramiko==2.4.0
+paramiko==2.4.1
 pathspec==0.5.5
 pbr==3.0.1
 pexpect==4.2.1
