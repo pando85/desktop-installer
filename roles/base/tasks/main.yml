@@ -1,0 +1,33 @@
+---
+- name: check basic packages
+  become: yes
+  pacman:
+    name: "{{ item }}"
+    state: present
+    update_cache: yes
+  with_items:
+    - zsh
+    - vim
+
+- name: check group
+  become: yes
+  group:
+    name: "{{ username }}"
+    state: present
+
+- name: check user
+  become: yes
+  user:
+    name: "{{ username }}"
+    shell: /usr/bin/zsh
+    home: "/home/{{ username }}"
+    group: "{{ username }}"
+    groups:
+      - lp
+      - wheel
+      - network
+      - video
+      - audio
+      - storage
+      - power
+    append: yes

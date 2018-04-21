@@ -2,3 +2,24 @@
 # defaults file for ansible-role-vscode
 
 aur_user: installer
+
+code_extensions:
+  - AlanWalk.markdown-toc
+  - DavidAnson.vscode-markdownlint
+  - PeterJausovec.vscode-docker
+  - alefragnani.project-manager
+  - dbaeumer.vscode-eslint
+  - deerawan.vscode-dash
+  - eamodio.gitlens
+  - eg2.tslint
+  - eriklynd.json-tools
+  - haaaad.ansible
+  - kenhowardpdx.vscode-gist
+  - ms-python.python
+  - naereen.makefiles-support-for-vscode
+  - secanis.jenkinsfile-support
+  - shardulm94.trailing-spaces
+  - sysninja.vscode-ansible-mod
+  - vscodevim.vim
+  - vscoss.vscode-ansible
+  - wholroyd.jinja

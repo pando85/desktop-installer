@@ -5,13 +5,16 @@ Desktop-installer
 
 Ansible repo for automate desktop environment installation and configuration.
 
-# Check code
+Check code
+----------
 
 ```bash
 make check
 ```
 
-# Test code
+Test code
+---------
+
 ``` bash
 make test
 ```

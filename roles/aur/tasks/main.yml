@@ -4,7 +4,7 @@
 - name: All root
   become: yes
   block:
-    - name: "[aur] check dependencies"
+    - name: check dependencies
       pacman:
         name: "{{ item }}"
         state: present
@@ -12,14 +12,14 @@
       with_items:
         - shadow
 
-    - name: "[aur] check aur installer"
+    - name: check aur installer
       pacman:
         name: "{{ aur_installer }}"
         state: present
         update_cache: yes
       when: aur_installer is defined
 
-    - name: "[aur] create user"
+    - name: create user
       user:
         name: "{{ aur_user }}"
         state: present
@@ -32,7 +32,8 @@
         line: "{{ aur_user }} ALL=(ALL) NOPASSWD: ALL"
         path: "/etc/sudoers"
 
-- name: "[aur] test install from aur"
+- name: test install from aur
   aur:
     name: openssl
     user: "{{ aur_user }}"
+  check_mode: yes

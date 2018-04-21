@@ -1,0 +1,7 @@
+---
+
+- name: "install extensions"
+  become: yes
+  become_user: "{{ username }}"
+  shell: code --install-extension {{ item }}
+  loop: "{{ code_extensions }}"

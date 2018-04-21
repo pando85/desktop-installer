@@ -1,7 +1,13 @@
 ---
-# tasks file for ansible-role-vscode
+
 - name: Install vscode package
-  import_tasks: install/from_yaourt.yml
+  import_tasks: install/from_aur.yml
   tags:
-    - vscode-install
     - vscode
+    - vscode-install
+
+- name: Install vscode package
+  import_tasks: install_extensions.yml
+  tags:
+    - vscode
+    - vscode-extensions
